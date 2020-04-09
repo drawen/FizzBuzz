@@ -1,18 +1,19 @@
 package hu.okipeti.fizzbuzzonsteroid;
 
-import java.util.stream.IntStream;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FizzBuzzRunner {
 
-  private final FizzBuzzComponent fizzBuzzComponent;
+    private final FizzBuzzComponent fizzBuzzComponent;
 
-  public FizzBuzzRunner(FizzBuzzComponent fizzBuzzComponent) {
-    this.fizzBuzzComponent = fizzBuzzComponent;
-  }
+    @Autowired
+    public FizzBuzzRunner(FizzBuzzComponent fizzBuzzComponent) {
+        this.fizzBuzzComponent = fizzBuzzComponent;
+    }
 
-  public void run() {
-    IntStream.range(1, 101).forEach(fizzBuzzComponent::fizzBuzzNumber);
-  }
+    public void run() {
+        fizzBuzzComponent.fizzBuzzNumber(100);
+    }
 }
